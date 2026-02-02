@@ -58,10 +58,11 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
+      className="h-full"
     >
-      <Card className="overflow-hidden group hover:border-emerald-500/30 transition-all duration-300">
+      <Card className="h-full flex flex-col overflow-hidden group hover:border-emerald-500/30 transition-all duration-300">
         {/* Image */}
-        <div className="relative h-48 overflow-hidden bg-zinc-800">
+        <div className="relative h-48 flex-shrink-0 overflow-hidden bg-zinc-800">
           {project.image ? (
             <img
               src={project.image}
@@ -79,15 +80,15 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent opacity-60" />
         </div>
 
-        <CardContent className="p-6">
+        <CardContent className="p-6 flex flex-col flex-1">
           {/* Title */}
           <h3 className="text-xl font-semibold text-zinc-100 mb-2">
             {project.title}
           </h3>
 
-          {/* Description */}
+          {/* Description - Agora mostra texto completo */}
           {project.description && (
-            <p className="text-sm text-zinc-400 mb-4 line-clamp-2">
+            <p className="text-sm text-zinc-400 mb-4">
               {project.description}
             </p>
           )}
@@ -101,8 +102,8 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             ))}
           </div>
 
-          {/* Actions */}
-          <div className="flex gap-3">
+          {/* Actions - Sempre no final do card */}
+          <div className="mt-auto flex gap-3">
             {project.repoUrl && (
               <Button variant="outline" size="sm" asChild>
                 <a
@@ -141,7 +142,7 @@ export function Projetos() {
             desenvolvimento.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
             {projects.map((project, index) => (
               <ProjectCard
                 key={project.title}
