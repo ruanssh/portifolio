@@ -6,6 +6,7 @@ import {
   MapPin,
   Link as LinkIcon,
   Calendar,
+  Mail,
 } from "lucide-react";
 import { Avatar } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -73,7 +74,7 @@ export function ProfileCard({
         </div>
 
         {/* Social Icons - Top Right */}
-        <div className="absolute -top-12 right-0 flex items-center gap-2">
+        <div className="absolute -top-12 right-6 flex items-center gap-2">
           {socials?.linkedin && (
             <a
               href={socials.linkedin}
@@ -104,8 +105,11 @@ export function ProfileCard({
               <Github className="h-4 w-4" />
             </a>
           )}
-          <Button size="sm" onClick={onContactClick} className="ml-2">
-            Entre em contato
+          <Button size="sm" asChild className="h-8 px-3 text-xs">
+            <a href="mailto:ruanpinheiro762@gmail.com">
+              <Mail className="h-3.5 w-3.5" />
+              Contato
+            </a>
           </Button>
         </div>
       </div>

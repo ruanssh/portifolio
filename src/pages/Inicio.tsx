@@ -15,7 +15,7 @@ export function Inicio() {
       <Container>
         <ProfileCard
           coverImage="https://images.unsplash.com/photo-1517134191118-9d595e4c8c2b?q=80&w=1200&auto=format&fit=crop"
-          avatarImage="../../assets/img/ruan-pereira.jpg"
+          avatarImage="/ruan-pereira.jpg"
           name="Ruan Pereira"
           username="ruanssh"
           description="Um engenheiro de software focado em criar soluções elegantes e eficazes. Sou movido por desafios e pelo desejo de aprender novas tecnologias."
