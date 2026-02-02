@@ -1,5 +1,15 @@
 import { motion } from "framer-motion";
-import { Github, Mail, Shield, Zap, Code, Briefcase, Rocket, Users, Sparkles } from "lucide-react";
+import {
+  Github,
+  Mail,
+  Shield,
+  Zap,
+  Code,
+  Briefcase,
+  Rocket,
+  Users,
+  Sparkles,
+} from "lucide-react";
 import { Section } from "@/components/layout/Section";
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/button";
@@ -27,17 +37,20 @@ const servicesItems = [
   {
     icon: Rocket,
     title: "Desenvolvimento Full Stack",
-    description: "Desenvolvimento completo de aplicações web, desde o frontend moderno e responsivo até APIs robustas e escaláveis no backend.",
+    description:
+      "Desenvolvimento completo de aplicações web, desde o frontend moderno e responsivo até APIs robustas e escaláveis no backend.",
   },
   {
     icon: Users,
     title: "Consultoria Técnica",
-    description: "Análise de arquitetura, revisão de código, otimização de performance e orientação na escolha das melhores tecnologias para seu projeto.",
+    description:
+      "Análise de arquitetura, revisão de código, otimização de performance e orientação na escolha das melhores tecnologias para seu projeto.",
   },
   {
     icon: Sparkles,
     title: "Integrações e Automações",
-    description: "Integração de sistemas, APIs de terceiros, automação de processos e desenvolvimento de soluções sob medida para seu negócio.",
+    description:
+      "Integração de sistemas, APIs de terceiros, automação de processos e desenvolvimento de soluções sob medida para seu negócio.",
   },
 ];
 
@@ -57,13 +70,18 @@ export function Sobre() {
 
           <div className="space-y-6 text-zinc-400 leading-relaxed mb-12">
             <p className="text-lg">
-              Sou o Ruan, desenvolvedor fullstack com experiência sólida em desenvolvimento web e soluções robustas baseadas em APIs modernas. Trabalho principalmente com React, TypeScript, Node.js, PHP e Python, aplicando boas práticas de arquitetura e foco em código limpo e performático.
+              Sou o Ruan, desenvolvedor fullstack com experiência sólida em
+              desenvolvimento web e soluções robustas baseadas em APIs modernas.
+              Trabalho principalmente com React, TypeScript, Node.js, PHP e
+              Python, aplicando boas práticas de arquitetura e foco em código
+              limpo e performático.
             </p>
             <p>
-              Tenho facilidade em transitar entre frontend e backend, além de colaborar ativamente em times ágeis. Atualmente, aprofundo meus estudos em Rust, inteligência artificial e segurança da informação, sempre buscando expandir minha visão técnica e entregar soluções cada vez mais inovadoras.
-            </p>
-            <p>
-              Minha abordagem combina pensamento analítico com criatividade técnica, permitindo-me criar soluções que não apenas funcionam perfeitamente, mas também proporcionam experiências excepcionais aos usuários. Acredito que a tecnologia deve servir as pessoas, e é essa filosofia que guia cada linha de código que escrevo.
+              Tenho facilidade em transitar entre frontend e backend, além de
+              colaborar ativamente em times ágeis. Atualmente, aprofundo meus
+              estudos em Rust, inteligência artificial e segurança da
+              informação, sempre buscando expandir minha visão técnica e
+              entregar soluções cada vez mais inovadoras.
             </p>
           </div>
 
@@ -100,10 +118,20 @@ export function Sobre() {
                 Estou aberto a oportunidades de freelance e projetos full stack!
               </h3>
               <p className="text-zinc-400 leading-relaxed mb-6">
-                Se você tem uma ideia de projeto, precisa de ajuda para desenvolver uma aplicação web completa, ou busca um profissional para integrar sua equipe de forma remota, ficarei feliz em conversar. Tenho experiência em entregar projetos desde o conceito até o deploy, trabalhando com metodologias ágeis e mantendo uma comunicação transparente durante todo o processo.
+                Se você tem uma ideia de projeto, precisa de ajuda para
+                desenvolver uma aplicação web completa, ou busca um profissional
+                para integrar sua equipe de forma remota, ficarei feliz em
+                conversar. Tenho experiência em entregar projetos desde o
+                conceito até o deploy, trabalhando com metodologias ágeis e
+                mantendo uma comunicação transparente durante todo o processo.
               </p>
               <p className="text-zinc-400 leading-relaxed mb-6">
-                Seja um MVP para validar sua ideia, uma plataforma SaaS escalável, ou a modernização de sistemas legados, posso ajudar a transformar suas necessidades em soluções tecnológicas eficientes. Valorizo parcerias de longo prazo e me dedico a entender profundamente o negócio de cada cliente para entregar resultados que realmente fazem a diferença.
+                Seja um MVP para validar sua ideia, uma plataforma SaaS
+                escalável, ou a modernização de sistemas legados, posso ajudar a
+                transformar suas necessidades em soluções tecnológicas
+                eficientes. Valorizo parcerias de longo prazo e me dedico a
+                entender profundamente o negócio de cada cliente para entregar
+                resultados que realmente fazem a diferença.
               </p>
               <div className="flex flex-wrap gap-3">
                 <span className="px-3 py-1 bg-emerald-500/10 text-emerald-400 rounded-full text-sm">
