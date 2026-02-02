@@ -7,23 +7,76 @@ import { Briefcase, MapPin, Calendar } from "lucide-react";
 interface ExperienceItem {
   company: string;
   role: string;
-  period: string;
-  duration: string;
+  startDate: string; // formato: "YYYY-MM"
+  endDate?: string | null; // null = atual
   location: string;
   type: string;
   description: string;
   details: string[];
   technologies: string[];
   logo: string;
-  isCurrent?: boolean;
+}
+
+// Função para calcular a duração entre duas datas
+function calculateDuration(start: string, end: string | null): string {
+  const startDate = new Date(start + "-01");
+  const endDate = end ? new Date(end + "-01") : new Date();
+
+  const years = endDate.getFullYear() - startDate.getFullYear();
+  const months = endDate.getMonth() - startDate.getMonth();
+
+  let totalMonths = years * 12 + months;
+  if (totalMonths < 0) totalMonths = 0;
+
+  const finalYears = Math.floor(totalMonths / 12);
+  const finalMonths = totalMonths % 12;
+
+  if (finalYears === 0 && finalMonths === 0) return "1 mês";
+  if (finalYears === 0)
+    return `${finalMonths} ${finalMonths === 1 ? "mês" : "meses"}`;
+  if (finalMonths === 0)
+    return `${finalYears} ${finalYears === 1 ? "ano" : "anos"}`;
+  return `${finalYears} ${finalYears === 1 ? "ano" : "anos"} ${finalMonths} ${finalMonths === 1 ? "mês" : "meses"}`;
+}
+
+// Função para formatar o período
+function formatPeriod(start: string, end: string | null): string {
+  const months = [
+    "jan",
+    "fev",
+    "mar",
+    "abr",
+    "mai",
+    "jun",
+    "jul",
+    "ago",
+    "set",
+    "out",
+    "nov",
+    "dez",
+  ];
+
+  const startDate = new Date(start + "-01");
+  const startMonth = months[startDate.getMonth()];
+  const startYear = startDate.getFullYear();
+
+  if (!end) {
+    return `${startMonth} de ${startYear} - o momento`;
+  }
+
+  const endDate = new Date(end + "-01");
+  const endMonth = months[endDate.getMonth()];
+  const endYear = endDate.getFullYear();
+
+  return `${startMonth} de ${startYear} - ${endMonth} de ${endYear}`;
 }
 
 const experiences: ExperienceItem[] = [
   {
     company: "Instituto Conecthus - Tecnologia e Biotecnologia do Amazonas",
     role: "Desenvolvedor Full Stack PL",
-    period: "out de 2025 - o momento",
-    duration: "5 meses",
+    startDate: "2025-10",
+    endDate: null, // null = posição atual
     location: "Manaus, Amazonas, Brasil",
     type: "Tempo integral · Híbrida",
     description:
@@ -36,13 +89,12 @@ const experiences: ExperienceItem[] = [
     ],
     technologies: ["Docker", "CI/CD", "React", "Node.js", "PostgreSQL"],
     logo: "IC",
-    isCurrent: true,
   },
   {
     company: "Instituto Conecthus - Tecnologia e Biotecnologia do Amazonas",
     role: "Desenvolvedor Full Stack Jr",
-    period: "out de 2024 - out de 2025",
-    duration: "1 ano 1 mês",
+    startDate: "2024-10",
+    endDate: "2025-10",
     location: "Manaus, Amazonas, Brasil",
     type: "Tempo integral · Híbrida",
     description:
@@ -59,8 +111,8 @@ const experiences: ExperienceItem[] = [
   {
     company: "Salcomp Plc",
     role: "Analista de Sistemas Jr",
-    period: "out de 2023 - out de 2024",
-    duration: "1 ano 1 mês",
+    startDate: "2023-10",
+    endDate: "2024-10",
     location: "Manaus, Amazonas, Brasil",
     type: "Tempo integral · Presencial",
     description:
@@ -78,8 +130,8 @@ const experiences: ExperienceItem[] = [
   {
     company: "Salcomp Plc",
     role: "Assistente de TI",
-    period: "abr de 2021 - mar de 2023",
-    duration: "2 anos",
+    startDate: "2021-04",
+    endDate: "2023-04",
     location: "Manaus, Amazonas, Brasil",
     type: "Aprendiz · Presencial",
     description:
@@ -102,6 +154,10 @@ function ExperienceCard({
   item: ExperienceItem;
   index: number;
 }) {
+  const period = formatPeriod(item.startDate, item.endDate);
+  const duration = calculateDuration(item.startDate, item.endDate);
+  const isCurrent = item.endDate === null;
+
   return (
     <motion.div
       initial={{ opacity: 0, x: -20 }}
@@ -116,7 +172,7 @@ function ExperienceCard({
       {/* Timeline dot */}
       <div
         className={`absolute left-0 top-2 w-2 h-2 -translate-x-1/2 rounded-full ${
-          item.isCurrent ? "bg-emerald-500" : "bg-zinc-600"
+          isCurrent ? "bg-emerald-500" : "bg-zinc-600"
         } ring-4 ring-zinc-950`}
       />
 
@@ -147,7 +203,7 @@ function ExperienceCard({
             <div className="flex items-center gap-1">
               <Calendar className="h-4 w-4" />
               <span>
-                {item.period} · {item.duration}
+                {period} · {duration}
               </span>
             </div>
             <div className="flex items-center gap-1">
