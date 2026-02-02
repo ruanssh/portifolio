@@ -1,11 +1,5 @@
 import { motion } from "framer-motion";
-import {
-  Github,
-  Linkedin,
-  MapPin,
-  Calendar,
-  Mail,
-} from "lucide-react";
+import { Github, Linkedin, MapPin, Calendar, Mail } from "lucide-react";
 import { Avatar } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Cover } from "./Cover";
@@ -156,7 +150,7 @@ export function ProfileCard({
                 {yearsExperience}+
               </p>
               <p className="text-xs text-zinc-500 uppercase tracking-wider">
-                Years Experience
+                Anos de Experiência
               </p>
             </div>
           )}
@@ -166,7 +160,7 @@ export function ProfileCard({
                 {totalProjects}+
               </p>
               <p className="text-xs text-zinc-500 uppercase tracking-wider">
-                Total Projects
+                Total de Projetos
               </p>
             </div>
           )}
@@ -174,7 +168,7 @@ export function ProfileCard({
             <div className="text-center">
               <p className="text-xl font-bold text-zinc-100">{age}</p>
               <p className="text-xs text-zinc-500 uppercase tracking-wider">
-                Years Old
+                Idade
               </p>
             </div>
           )}
