@@ -7,7 +7,7 @@ export function Inicio() {
     <Section id="inicio" className="pt-32 md:pt-40">
       <Container>
         <ProfileCard
-          coverImage="https://images.unsplash.com/photo-1517134191118-9d595e4c8c2b?q=80&w=1200&auto=format&fit=crop"
+          coverImage="https://images.unsplash.com/photo-1605379399642-870262d3d051?q=80&w=1506&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           avatarImage="/ruan-pereira.jpg"
           name="Ruan Pereira"
           username="ruanssh"

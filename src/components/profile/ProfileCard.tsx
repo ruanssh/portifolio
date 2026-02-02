@@ -3,7 +3,6 @@ import {
   Github,
   Linkedin,
   MapPin,
-  Link as LinkIcon,
   Calendar,
   Mail,
 } from "lucide-react";
@@ -37,7 +36,6 @@ export function ProfileCard({
   username,
   description,
   location,
-  website,
   joinedDate,
   yearsExperience,
   totalProjects,

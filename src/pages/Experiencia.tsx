@@ -8,7 +8,7 @@ interface ExperienceItem {
   company: string;
   role: string;
   startDate: string; // formato: "YYYY-MM"
-  endDate?: string | null; // null = atual
+  endDate: string | null; // null = atual
   location: string;
   type: string;
   description: string;
@@ -271,7 +271,7 @@ export function Experiencia() {
           <div className="relative">
             {experiences.map((item, index) => (
               <ExperienceCard
-                key={item.company + item.role + item.period}
+                key={item.company + item.role + item.startDate}
                 item={item}
                 index={index}
               />
