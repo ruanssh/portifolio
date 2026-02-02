@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Github, ExternalLink, ImageOff } from "lucide-react";
+import { Github, ImageOff } from "lucide-react";
 import { Section } from "@/components/layout/Section";
 import { Container } from "@/components/layout/Container";
 import { Card, CardContent } from "@/components/ui/card";
@@ -9,36 +9,45 @@ import { Button } from "@/components/ui/button";
 interface Project {
   title: string;
   description?: string;
-  period: string;
   image?: string;
   technologies: string[];
   repoUrl?: string;
-  demoUrl?: string;
 }
 
 const projects: Project[] = [
   {
-    title: "E-commerce Platform",
-    period: "14 MAY, 2022 — 19 MAR, 2023",
+    title: "MAINTENIX",
+    description:
+      "Sistema completo de gerenciamento de manutenção industrial com dashboard, notificações por email e geração de PDFs.",
     image:
-      "https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=800&auto=format&fit=crop",
-    technologies: ["React", "Node.js", "PostgreSQL"],
-    repoUrl: "https://github.com/ruanssh/ecommerce",
+      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800&auto=format&fit=crop",
+    technologies: [
+      "React",
+      "TypeScript",
+      "NestJS",
+      "Prisma",
+      "Docker",
+      "MinIO",
+    ],
+    repoUrl: "https://github.com/ruanssh/MAINTENIX",
   },
   {
-    title: "Task Manager API",
-    period: "30 JUN, 2023 — ATUALMENTE",
+    title: "Amazon Trails",
+    description:
+      "Plataforma web para compartilhar informações e rotas de trilhas na floresta amazônica com mapas interativos.",
     image:
-      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop",
-    technologies: ["TypeScript", "Fastify"],
-    repoUrl: "https://github.com/ruanssh/task-api",
+      "https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=800&auto=format&fit=crop",
+    technologies: ["HTML5", "CSS3", "JavaScript", "Bootstrap", "Google Maps"],
+    repoUrl: "https://github.com/ruanssh/amazon-trails",
   },
   {
-    title: "Portfolio Website",
-    period: "31 DEC, 2022 — 29 JUN, 2023",
-    technologies: ["PostgreSQL", "TypeScript", "Docker"],
-    repoUrl: "https://github.com/ruanssh/portfolio",
-    demoUrl: "https://ruanssh.dev/",
+    title: "Anime Discord Bot",
+    description:
+      "Bot do Discord em Python que busca informações de animes usando a API Jikan REST com embeds personalizados.",
+    image:
+      "https://images.unsplash.com/photo-1613376023733-0a73315d9b06?q=80&w=800&auto=format&fit=crop",
+    technologies: ["Python", "Discord.py", "Jikan API"],
+    repoUrl: "https://github.com/ruanssh/Anime-Bot",
   },
 ];
 
@@ -71,15 +80,17 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         </div>
 
         <CardContent className="p-6">
-          {/* Period */}
-          <p className="text-xs text-zinc-500 uppercase tracking-wider mb-2">
-            {project.period}
-          </p>
-
           {/* Title */}
-          <h3 className="text-xl font-semibold text-zinc-100 mb-4">
+          <h3 className="text-xl font-semibold text-zinc-100 mb-2">
             {project.title}
           </h3>
+
+          {/* Description */}
+          {project.description && (
+            <p className="text-sm text-zinc-400 mb-4 line-clamp-2">
+              {project.description}
+            </p>
+          )}
 
           {/* Technologies */}
           <div className="flex flex-wrap gap-2 mb-6">
@@ -100,19 +111,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                   rel="noopener noreferrer"
                 >
                   <Github className="h-4 w-4 mr-2" />
-                  Repo
-                </a>
-              </Button>
-            )}
-            {project.demoUrl && (
-              <Button variant="ghost" size="sm" asChild>
-                <a
-                  href={project.demoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <ExternalLink className="h-4 w-4 mr-2" />
-                  Demo
+                  Repositório
                 </a>
               </Button>
             )}
