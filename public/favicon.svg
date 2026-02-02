@@ -1,0 +1,32 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 100 100"
+>
+  <!-- Fundo -->
+  <circle cx="50" cy="50" r="48" fill="#0f172a" />
+
+  <!-- Anel externo -->
+  <circle
+    cx="50"
+    cy="50"
+    r="46"
+    fill="none"
+    stroke="#22c55e"
+    stroke-width="3"
+    opacity="0.9"
+  />
+
+  <!-- Texto RP -->
+  <text
+    x="50"
+    y="58"
+    text-anchor="middle"
+    font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif"
+    font-size="32"
+    font-weight="700"
+    fill="#e5e7eb"
+    letter-spacing="1"
+  >
+    RP
+  </text>
+</svg>

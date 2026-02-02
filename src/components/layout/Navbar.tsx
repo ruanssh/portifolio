@@ -66,7 +66,7 @@ export function Navbar() {
         </div>
 
         {/* Theme Toggle */}
-        <button
+        {/* <button
           onClick={toggleTheme}
           className={cn(
             "flex items-center justify-center w-10 h-10 rounded-full ml-2",
@@ -79,7 +79,7 @@ export function Navbar() {
           ) : (
             <Moon className="h-5 w-5" />
           )}
-        </button>
+        </button> */}
       </nav>
     </motion.header>
   );

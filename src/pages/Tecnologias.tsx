@@ -19,6 +19,7 @@ const technologies: Technology[] = [
   { name: "Docker" },
   { name: "Python" },
   { name: "PHP" },
+  { name: "S3" },
 ];
 
 export function Tecnologias() {
