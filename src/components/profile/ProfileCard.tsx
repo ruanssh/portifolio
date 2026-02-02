@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import {
   Github,
   Linkedin,
-  Twitter,
   MapPin,
   Link as LinkIcon,
   Calendar,
@@ -28,9 +27,7 @@ interface ProfileCardProps {
   socials?: {
     github?: string;
     linkedin?: string;
-    twitter?: string;
   };
-  onContactClick?: () => void;
 }
 
 export function ProfileCard({
@@ -46,7 +43,6 @@ export function ProfileCard({
   totalProjects,
   age,
   socials,
-  onContactClick,
 }: ProfileCardProps) {
   return (
     <motion.div

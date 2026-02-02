@@ -3,13 +3,6 @@ import { Container } from "@/components/layout/Container";
 import { ProfileCard } from "@/components/profile/ProfileCard";
 
 export function Inicio() {
-  const handleContactClick = () => {
-    const element = document.querySelector("#contato");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
     <Section id="inicio" className="pt-32 md:pt-40">
       <Container>
@@ -28,7 +21,6 @@ export function Inicio() {
             github: "https://github.com/ruanssh",
             linkedin: "https://www.linkedin.com/in/ruanppereira/",
           }}
-          onContactClick={handleContactClick}
         />
       </Container>
     </Section>

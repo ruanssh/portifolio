@@ -1,7 +1,5 @@
 import { motion } from "framer-motion";
-import { Moon, Sun } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { useTheme } from "@/hooks/useTheme";
 
 const navItems = [
   { label: "Início", href: "#inicio" },
@@ -12,8 +10,6 @@ const navItems = [
 ];
 
 export function Navbar() {
-  const { theme, toggleTheme } = useTheme();
-
   const handleClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
     href: string,
