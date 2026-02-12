@@ -16,22 +16,6 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "MAINTENIX",
-    description:
-      "Sistema completo de gerenciamento de manutenção industrial com dashboard, notificações por email e geração de PDFs.",
-    image:
-      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800&auto=format&fit=crop",
-    technologies: [
-      "React",
-      "TypeScript",
-      "NestJS",
-      "Prisma",
-      "Docker",
-      "MinIO",
-    ],
-    repoUrl: "https://github.com/ruanssh/MAINTENIX",
-  },
-  {
     title: "Amazon Trails",
     description:
       "Plataforma web para compartilhar informações e rotas de trilhas na floresta amazônica com mapas interativos.",
