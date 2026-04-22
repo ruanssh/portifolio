@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import {
   Github,
   Mail,
@@ -58,6 +58,8 @@ const servicesItems = [
 ];
 
 export function Sobre() {
+  const reduceMotion = useReducedMotion();
+
   return (
     <Section id="sobre">
       <Container>
@@ -135,8 +137,30 @@ export function Sobre() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                  <Card className="h-full hover:border-emerald-500/30 transition-colors duration-300">
-                    <CardContent className="p-6">
+                  <Card className="group relative h-full overflow-hidden hover:border-emerald-500/30 transition-colors duration-300">
+                    <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald-400/70 to-transparent opacity-70" />
+                    <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-emerald-500/40 to-transparent opacity-60" />
+                    <motion.div
+                      aria-hidden="true"
+                      className="pointer-events-none absolute -left-1/3 top-0 h-full w-1/3 bg-gradient-to-r from-transparent via-emerald-300/20 to-transparent"
+                      style={{ transform: "skewX(-18deg)" }}
+                      animate={
+                        reduceMotion
+                          ? undefined
+                          : {
+                              x: ["-15%", "360%"],
+                              opacity: [0, 0.9, 0],
+                            }
+                      }
+                      transition={{
+                        duration: 1.8,
+                        delay: index * 0.35,
+                        repeat: reduceMotion ? 0 : 2,
+                        repeatDelay: 1.6,
+                        ease: "easeInOut",
+                      }}
+                    />
+                    <CardContent className="relative p-6">
                       <item.icon className="h-8 w-8 text-emerald-500 mb-4" />
                       <h3 className="text-lg font-semibold text-zinc-100 mb-2">
                         {item.title}
@@ -166,8 +190,30 @@ export function Sobre() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                  <Card className="h-full hover:border-emerald-500/30 transition-colors duration-300">
-                    <CardContent className="p-6">
+                  <Card className="group relative h-full overflow-hidden hover:border-emerald-500/30 transition-colors duration-300">
+                    <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald-400/70 to-transparent opacity-70" />
+                    <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-emerald-500/40 to-transparent opacity-60" />
+                    <motion.div
+                      aria-hidden="true"
+                      className="pointer-events-none absolute -left-1/3 top-0 h-full w-1/3 bg-gradient-to-r from-transparent via-emerald-300/20 to-transparent"
+                      style={{ transform: "skewX(-18deg)" }}
+                      animate={
+                        reduceMotion
+                          ? undefined
+                          : {
+                              x: ["-15%", "360%"],
+                              opacity: [0, 0.9, 0],
+                            }
+                      }
+                      transition={{
+                        duration: 1.8,
+                        delay: index * 0.35,
+                        repeat: reduceMotion ? 0 : 2,
+                        repeatDelay: 1.6,
+                        ease: "easeInOut",
+                      }}
+                    />
+                    <CardContent className="relative p-6">
                       <item.icon className="h-8 w-8 text-emerald-500 mb-4" />
                       <h3 className="text-lg font-semibold text-zinc-100 mb-2">
                         {item.title}
