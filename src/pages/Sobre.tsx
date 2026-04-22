@@ -68,20 +68,30 @@ export function Sobre() {
             Sobre mim.
           </h2>
 
-          <div className="space-y-6 text-zinc-400 leading-relaxed mb-12">
-            <p className="text-lg">
-              Sou o Ruan, desenvolvedor fullstack com experiência sólida em
-              desenvolvimento web e soluções robustas baseadas em APIs modernas.
-              Trabalho principalmente com React, TypeScript, Node.js, PHP e
-              Python, aplicando boas práticas de arquitetura e foco em código
-              limpo e performático.
+          <div className="space-y-6 text-zinc-400 leading-relaxed mb-12 text-base md:text-lg">
+            <p>
+              Olá, sou o Ruan, Desenvolvedor Full Stack, e atuo além da
+              implementação: participo da definição de soluções e das decisões
+              técnicas junto ao cliente, conectando visão de produto com
+              execução prática. Trabalho principalmente com TypeScript, Python e
+              PHP, desenvolvendo aplicações web modernas, APIs robustas e
+              integrações entre sistemas.
             </p>
             <p>
-              Tenho facilidade em transitar entre frontend e backend, além de
-              colaborar ativamente em times ágeis. Atualmente, aprofundo meus
-              estudos em Rust, inteligência artificial e segurança da
-              informação, sempre buscando expandir minha visão técnica e
-              entregar soluções cada vez mais inovadoras.
+              Tenho experiência em conduzir projetos do zero até produção, com
+              foco em impacto real no negócio, rastreabilidade, dashboards em
+              tempo real e eficiência operacional. Transito com fluidez entre
+              frontend e backend, estruturando arquiteturas escaláveis, código
+              limpo e fluxos de entrega consistentes em times ágeis.
+            </p>
+            <p>
+              Também exploro desenvolvimento mobile como extensão natural das
+              soluções que construo, utilizando Swift e React Native para criar
+              aplicações integradas ao ecossistema dos sistemas. Atualmente,
+              aprofundo meus estudos em Rust, inteligência artificial e
+              segurança da informação, além de utilizar múltiplos agentes de IA
+              de forma orquestrada, com validação de saídas e automação de
+              fluxos para elevar produtividade e qualidade técnica.
             </p>
           </div>
 
@@ -109,44 +119,8 @@ export function Sobre() {
             <div className="flex items-center gap-3 mb-6">
               <Briefcase className="h-6 w-6 text-emerald-500" />
               <p className="text-xs uppercase tracking-widest text-emerald-500 font-medium">
-                Disponível para Projetos
+                Disponível para Projetos!
               </p>
-            </div>
-
-            <div className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-2xl p-6 md:p-8 mb-8">
-              <h3 className="text-xl md:text-2xl font-semibold text-zinc-100 mb-4">
-                Estou aberto a oportunidades de freelance e projetos full stack!
-              </h3>
-              <p className="text-zinc-400 leading-relaxed mb-6">
-                Se você tem uma ideia de projeto, precisa de ajuda para
-                desenvolver uma aplicação web completa, ou busca um profissional
-                para integrar sua equipe de forma remota, ficarei feliz em
-                conversar. Tenho experiência em entregar projetos desde o
-                conceito até o deploy, trabalhando com metodologias ágeis e
-                mantendo uma comunicação transparente durante todo o processo.
-              </p>
-              <p className="text-zinc-400 leading-relaxed mb-6">
-                Seja um MVP para validar sua ideia, uma plataforma SaaS
-                escalável, ou a modernização de sistemas legados, posso ajudar a
-                transformar suas necessidades em soluções tecnológicas
-                eficientes. Valorizo parcerias de longo prazo e me dedico a
-                entender profundamente o negócio de cada cliente para entregar
-                resultados que realmente fazem a diferença.
-              </p>
-              <div className="flex flex-wrap gap-3">
-                <span className="px-3 py-1 bg-emerald-500/10 text-emerald-400 rounded-full text-sm">
-                  Freelance
-                </span>
-                <span className="px-3 py-1 bg-emerald-500/10 text-emerald-400 rounded-full text-sm">
-                  Projetos Full Stack
-                </span>
-                <span className="px-3 py-1 bg-emerald-500/10 text-emerald-400 rounded-full text-sm">
-                  Consultoria
-                </span>
-                <span className="px-3 py-1 bg-emerald-500/10 text-emerald-400 rounded-full text-sm">
-                  Parcerias
-                </span>
-              </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

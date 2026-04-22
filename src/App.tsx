@@ -5,6 +5,7 @@ import { Experiencia } from "@/pages/Experiencia";
 import { Projetos } from "@/pages/Projetos";
 import { Tecnologias } from "@/pages/Tecnologias";
 import { Footer } from "@/components/layout/Footer";
+import { SectionDivider } from "@/components/layout/SectionDivider";
 
 function App() {
   return (
@@ -12,9 +13,13 @@ function App() {
       <Navbar />
       <main>
         <Inicio />
+        <SectionDivider />
         <Sobre />
+        <SectionDivider />
         <Experiencia />
+        <SectionDivider />
         <Projetos />
+        <SectionDivider />
         <Tecnologias />
       </main>
       <Footer />

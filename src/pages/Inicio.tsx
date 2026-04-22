@@ -11,7 +11,7 @@ export function Inicio() {
           avatarImage="/ruan-pereira.jpg"
           name="Ruan Pereira"
           username="ruanssh"
-          description="Um engenheiro de software focado em criar soluções elegantes e eficazes. Sou movido por desafios e pelo desejo de aprender novas tecnologias."
+          description="Desenvolvedor Full Stack que atua além do código, participando da definição de soluções e decisões técnicas com foco em impacto real. Trabalho com TypeScript, Python e PHP para construir sistemas integrados, APIs robustas, dashboards em tempo real e automações para ambientes web, industriais e IoT."
           location="Manaus, Brasil"
           joinedDate=""
           yearsExperience={5}
