@@ -1,11 +1,13 @@
 import { Section } from "@/components/layout/Section";
 import { Container } from "@/components/layout/Container";
 import { ProfileCard } from "@/components/profile/ProfileCard";
+import { CyberGridBackground } from "@/components/effects/CyberGridBackground";
 
 export function Inicio() {
   return (
-    <Section id="inicio" className="pt-32 md:pt-40">
-      <Container>
+    <Section id="inicio" className="relative overflow-hidden pt-32 md:pt-40">
+      <CyberGridBackground />
+      <Container className="relative z-10">
         <ProfileCard
           coverImage="https://images.unsplash.com/photo-1605379399642-870262d3d051?q=80&w=1506&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           avatarImage="/ruan-pereira.jpg"
@@ -16,7 +18,6 @@ export function Inicio() {
           joinedDate=""
           yearsExperience={5}
           totalProjects={20}
-          age={21}
           socials={{
             github: "https://github.com/ruanssh",
             linkedin: "https://www.linkedin.com/in/ruanppereira/",

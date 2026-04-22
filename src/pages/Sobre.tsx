@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import {
   Github,
   Mail,
-  Shield,
   Zap,
+  MessageSquare,
   Code,
   Briefcase,
   Rocket,
@@ -17,19 +17,22 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const philosophyItems = [
   {
-    icon: Shield,
-    title: "Segurança Primeiro",
-    description: "Arquitetura construída com mentalidade de zero-confiança.",
+    icon: Zap,
+    title: "Entrega Rápida",
+    description:
+      "Transformo requisitos em entregas funcionais com ciclos curtos e foco em impacto imediato.",
   },
   {
-    icon: Zap,
-    title: "Alta Eficiência",
-    description: "Otimizado para baixa latência e alta throughput.",
+    icon: MessageSquare,
+    title: "Comunicação Ágil",
+    description:
+      "Respondo rápido, mantenho alinhamento constante e reduzo ruído entre negócio e tecnologia.",
   },
   {
     icon: Code,
-    title: "Lógica Limpa",
-    description: "Código que se lê como uma história, mantido com facilidade.",
+    title: "Qualidade que Escala",
+    description:
+      "Desenvolvo com arquitetura sólida e código limpo para sustentar a evolução contínua do produto.",
   },
 ];
 
@@ -68,7 +71,7 @@ export function Sobre() {
             Sobre mim.
           </h2>
 
-          <div className="space-y-6 text-zinc-400 leading-relaxed mb-12 text-base md:text-lg">
+          <div className="space-y-6 text-zinc-400 leading-relaxed mb-12 text-base md:text-lg text-justify">
             <p>
               Olá, sou o Ruan, Desenvolvedor Full Stack, e atuo além da
               implementação: participo da definição de soluções e das decisões
