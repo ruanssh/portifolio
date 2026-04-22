@@ -16,6 +16,42 @@ interface Project {
 
 const projects: Project[] = [
   {
+    title: "Fitcrocs",
+    description:
+      "Aplicação web fullstack para registrar treinos diários e acompanhar evolução com dashboard, incluindo autenticação JWT, CRUD de treinos e gestão de exercícios por sessão.",
+    image:
+      "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=800&auto=format&fit=crop",
+    technologies: [
+      "React 19",
+      "Vite",
+      "TypeScript",
+      "NestJS",
+      "Prisma",
+      "MySQL",
+      "JWT",
+      "Tailwind CSS",
+      "TanStack Query/Table",
+      "Recharts",
+    ],
+    repoUrl: "https://github.com/ruanssh/fitcrocs",
+  },
+  {
+    title: "MAINTENIX",
+    description:
+      "Sistema completo de gerenciamento de manutenção industrial com dashboard, notificações por email e geração de PDFs.",
+    image:
+      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800&auto=format&fit=crop",
+    technologies: [
+      "React",
+      "TypeScript",
+      "NestJS",
+      "Prisma",
+      "Docker",
+      "MinIO",
+    ],
+    repoUrl: "https://github.com/ruanssh/MAINTENIX",
+  },
+  {
     title: "Amazon Trails",
     description:
       "Plataforma web para compartilhar informações e rotas de trilhas na floresta amazônica com mapas interativos.",
@@ -23,15 +59,6 @@ const projects: Project[] = [
       "https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=800&auto=format&fit=crop",
     technologies: ["HTML5", "CSS3", "JavaScript", "Bootstrap", "Google Maps"],
     repoUrl: "https://github.com/ruanssh/amazon-trails",
-  },
-  {
-    title: "Anime Discord Bot",
-    description:
-      "Bot do Discord em Python que busca informações de animes usando a API Jikan REST com embeds personalizados.",
-    image:
-      "https://images.unsplash.com/photo-1613376023733-0a73315d9b06?q=80&w=800&auto=format&fit=crop",
-    technologies: ["Python", "Discord.py", "Jikan API"],
-    repoUrl: "https://github.com/ruanssh/Anime-Bot",
   },
 ];
 
@@ -72,9 +99,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
           {/* Description - Agora mostra texto completo */}
           {project.description && (
-            <p className="text-sm text-zinc-400 mb-4">
-              {project.description}
-            </p>
+            <p className="text-sm text-zinc-400 mb-4">{project.description}</p>
           )}
 
           {/* Technologies */}
