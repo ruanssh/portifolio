@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Github, ImageOff, Lock } from "lucide-react";
+import { Github, ImageOff, Lock, Star } from "lucide-react";
 import { Section } from "@/components/layout/Section";
 import { Container } from "@/components/layout/Container";
 import { Card, CardContent } from "@/components/ui/card";
@@ -19,6 +19,7 @@ interface Project {
   technologies: string[];
   repoUrl?: string;
   confidential?: boolean;
+  featured?: boolean;
 }
 
 const projects: Project[] = [
@@ -37,11 +38,14 @@ const projects: Project[] = [
       "MinIO",
     ],
     repoUrl: "https://github.com/ruanssh/MAINTENIX",
+    featured: true,
   },
   {
     title: "Gerenciamento de Scripts SAP",
     description:
       "Sistema fullstack para gestão de scripts e planos de teste em projetos SAP, com controle de módulos, transações, defeitos e aprovações, multi-cliente e exportação de relatórios para Excel.",
+    image:
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
     technologies: [
       "React 19",
       "TypeScript",
@@ -54,6 +58,7 @@ const projects: Project[] = [
       "MinIO",
     ],
     confidential: true,
+    featured: true,
   },
 ];
 
@@ -66,7 +71,13 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="h-full"
     >
-      <Card className="h-full flex flex-col overflow-hidden group hover:border-emerald-500/30 transition-all duration-300">
+      <Card
+        className={`h-full flex flex-col overflow-hidden group transition-all duration-300 ${
+          project.featured
+            ? "border-emerald-500/40 shadow-[0_0_24px_-8px_rgba(16,185,129,0.35)] hover:border-emerald-500/60"
+            : "hover:border-emerald-500/30"
+        }`}
+      >
         {/* Image */}
         <div className="relative h-48 flex-shrink-0 overflow-hidden bg-zinc-800">
           {project.image ? (
@@ -84,6 +95,12 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             </div>
           )}
           <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent opacity-60" />
+          {project.featured && (
+            <div className="absolute top-3 right-3 flex items-center gap-1.5 rounded-lg border border-emerald-500/30 bg-zinc-950/80 backdrop-blur px-2.5 py-1 text-xs font-medium text-emerald-400">
+              <Star className="h-3 w-3 fill-emerald-400" />
+              Destaque
+            </div>
+          )}
         </div>
 
         <CardContent className="p-6 flex flex-col flex-1">
