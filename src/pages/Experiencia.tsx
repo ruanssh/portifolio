@@ -86,6 +86,7 @@ const experiences: ExperienceItem[] = [
       "Implementação de soluções IoT para chão de fábrica, incluindo monitoramento de operadores via pulseiras ESD, integração com catracas e sistemas externos, com dashboards em tempo real para controle operacional",
       "Otimização de processos internos de TI, promovendo padronização, automação e melhoria contínua, reduzindo retrabalho e aumentando eficiência da equipe",
       "Apoio técnico e alinhamento com áreas de negócio, atuando como ponte entre times técnicos e usuários finais",
+      "Aplicação de Inteligência Artificial (arquiteturas RAG, LLMs locais via Ollama e em nuvem) e prompt engineering na automação de processos internos, com ganho de produtividade e qualidade técnica",
     ],
     technologies: [
       "Docker",
@@ -96,6 +97,9 @@ const experiences: ExperienceItem[] = [
       "IoT",
       "Dashboards",
       "Lean Manufacturing",
+      "RAG",
+      "Ollama",
+      "Prompt Engineering",
     ],
     logo: "IC",
   },

@@ -13,7 +13,7 @@ export function Inicio() {
           avatarImage="/ruan-pereira.jpg"
           name="Ruan Pereira"
           username="ruanssh"
-          description="Desenvolvedor Full Stack que atua além do código, participando da definição de soluções e decisões técnicas com foco em impacto real. Trabalho com TypeScript, Python e PHP para construir sistemas integrados, APIs robustas, dashboards em tempo real e automações para ambientes web, industriais e IoT."
+          description="Desenvolvedor Full Stack que atua além do código, participando da definição de soluções e decisões técnicas com foco em impacto real. Trabalho com TypeScript, Python e PHP para construir sistemas integrados, APIs robustas, dashboards em tempo real e automações para ambientes web, industriais e IoT. Também aplico Inteligência Artificial — arquiteturas RAG, LLMs locais e em nuvem (Ollama, OpenAI, Gemini) e prompt engineering — para automatizar processos corporativos."
           location="Manaus, Brasil"
           joinedDate=""
           yearsExperience={5}

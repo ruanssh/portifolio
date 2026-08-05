@@ -9,6 +9,7 @@ import {
   Rocket,
   Users,
   Sparkles,
+  Brain,
 } from "lucide-react";
 import { Section } from "@/components/layout/Section";
 import { Container } from "@/components/layout/Container";
@@ -55,6 +56,12 @@ const servicesItems = [
     description:
       "Integração de sistemas, APIs de terceiros, automação de processos e desenvolvimento de soluções sob medida para seu negócio.",
   },
+  {
+    icon: Brain,
+    title: "IA Aplicada & Automação",
+    description:
+      "Arquiteturas RAG, LLMs locais (Ollama) e em nuvem (OpenAI, Gemini) e prompt engineering aplicados à automação de processos corporativos.",
+  },
 ];
 
 export function Sobre() {
@@ -92,11 +99,13 @@ export function Sobre() {
             <p>
               Também exploro desenvolvimento mobile como extensão natural das
               soluções que construo, utilizando Swift e React Native para criar
-              aplicações integradas ao ecossistema dos sistemas. Atualmente,
-              aprofundo meus estudos em Rust, inteligência artificial e
-              segurança da informação, além de utilizar múltiplos agentes de IA
-              de forma orquestrada, com validação de saídas e automação de
-              fluxos para elevar produtividade e qualidade técnica.
+              aplicações integradas ao ecossistema dos sistemas. Tenho estudos
+              aplicados em Inteligência Artificial, incluindo arquiteturas RAG,
+              LLMs locais e em nuvem (Ollama, OpenAI, Gemini) e prompt
+              engineering, usados para automação de processos corporativos,
+              com validação de saídas e orquestração de múltiplos agentes de
+              IA para elevar produtividade e qualidade técnica. Também
+              aprofundo meus estudos em Rust e segurança da informação.
             </p>
           </div>
 
@@ -128,7 +137,7 @@ export function Sobre() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {servicesItems.map((item, index) => (
                 <motion.div
                   key={item.title}

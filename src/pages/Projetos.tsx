@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Github, ImageOff, Lock, Star } from "lucide-react";
+import { CheckCircle2, Github, ImageOff, Lock, Star } from "lucide-react";
 import { Section } from "@/components/layout/Section";
 import { Container } from "@/components/layout/Container";
 import { Card, CardContent } from "@/components/ui/card";
@@ -14,7 +14,9 @@ import {
 
 interface Project {
   title: string;
+  category?: string;
   description?: string;
+  highlights?: string[];
   image?: string;
   technologies: string[];
   repoUrl?: string;
@@ -25,10 +27,16 @@ interface Project {
 const projects: Project[] = [
   {
     title: "MAINTENIX",
+    category: "Manutenção Industrial",
     description:
       "Sistema completo de gerenciamento de manutenção industrial com dashboard, notificações por email e geração de PDFs.",
+    highlights: [
+      "Dashboard em tempo real com indicadores de manutenção",
+      "Notificações automáticas por email para a equipe",
+      "Geração de relatórios em PDF sob demanda",
+    ],
     image:
-      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200&auto=format&fit=crop",
     technologies: [
       "React",
       "TypeScript",
@@ -42,10 +50,16 @@ const projects: Project[] = [
   },
   {
     title: "Gerenciamento de Scripts SAP",
+    category: "Gestão de Testes SAP",
     description:
       "Sistema fullstack para gestão de scripts e planos de teste em projetos SAP, com controle de módulos, transações, defeitos e aprovações, multi-cliente e exportação de relatórios para Excel.",
+    highlights: [
+      "Fluxo de aprovação de planos de teste multi-cliente",
+      "Rastreamento de defeitos e retrabalho por etapa",
+      "Exportação de relatórios completos para Excel",
+    ],
     image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop",
     technologies: [
       "React 19",
       "TypeScript",
@@ -79,7 +93,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         }`}
       >
         {/* Image */}
-        <div className="relative h-48 flex-shrink-0 overflow-hidden bg-zinc-800">
+        <div className="relative h-56 flex-shrink-0 overflow-hidden bg-zinc-800">
           {project.image ? (
             <img
               src={project.image}
@@ -103,15 +117,37 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           )}
         </div>
 
-        <CardContent className="p-6 flex flex-col flex-1">
+        <CardContent className="p-6 sm:p-7 flex flex-col flex-1">
+          {/* Category */}
+          {project.category && (
+            <span className="text-xs font-medium uppercase tracking-wider text-emerald-400 mb-2">
+              {project.category}
+            </span>
+          )}
+
           {/* Title */}
-          <h3 className="text-xl font-semibold text-zinc-100 mb-2">
+          <h3 className="text-2xl font-semibold text-zinc-100 mb-2">
             {project.title}
           </h3>
 
           {/* Description - Agora mostra texto completo */}
           {project.description && (
             <p className="text-sm text-zinc-400 mb-4">{project.description}</p>
+          )}
+
+          {/* Highlights */}
+          {project.highlights && project.highlights.length > 0 && (
+            <ul className="flex flex-col gap-2 mb-6">
+              {project.highlights.map((highlight) => (
+                <li
+                  key={highlight}
+                  className="flex items-start gap-2 text-sm text-zinc-300"
+                >
+                  <CheckCircle2 className="h-4 w-4 mt-0.5 flex-shrink-0 text-emerald-400" />
+                  <span>{highlight}</span>
+                </li>
+              ))}
+            </ul>
           )}
 
           {/* Technologies */}
@@ -178,7 +214,7 @@ export function Projetos() {
             desenvolvimento.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8 items-stretch">
             {projects.map((project, index) => (
               <ProjectCard
                 key={project.title}

@@ -6,9 +6,15 @@ import { Badge } from "@/components/ui/badge";
 interface Technology {
   name: string;
   icon?: string;
+  highlighted?: boolean;
 }
 
 const technologies: Technology[] = [
+  { name: "RAG", highlighted: true },
+  { name: "Ollama", highlighted: true },
+  { name: "OpenAI", highlighted: true },
+  { name: "Gemini", highlighted: true },
+  { name: "Prompt Engineering", highlighted: true },
   { name: "React" },
   { name: "Node.js" },
   { name: "PostgreSQL" },
@@ -51,7 +57,7 @@ export function Tecnologias() {
                 whileHover={{ scale: 1.05 }}
               >
                 <Badge
-                  variant="secondary"
+                  variant={tech.highlighted ? "default" : "secondary"}
                   className="px-4 py-2 text-sm cursor-default hover:bg-emerald-500/20 hover:text-emerald-400 transition-all duration-200"
                 >
                   {tech.name}
