@@ -1,10 +1,16 @@
 import { motion } from "framer-motion";
-import { Github, ImageOff } from "lucide-react";
+import { Github, ImageOff, Lock } from "lucide-react";
 import { Section } from "@/components/layout/Section";
 import { Container } from "@/components/layout/Container";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 interface Project {
   title: string;
@@ -12,29 +18,10 @@ interface Project {
   image?: string;
   technologies: string[];
   repoUrl?: string;
+  confidential?: boolean;
 }
 
 const projects: Project[] = [
-  {
-    title: "Fitcrocs",
-    description:
-      "Aplicação web fullstack para registrar treinos diários e acompanhar evolução com dashboard, incluindo autenticação JWT, CRUD de treinos e gestão de exercícios por sessão.",
-    image:
-      "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=800&auto=format&fit=crop",
-    technologies: [
-      "React 19",
-      "Vite",
-      "TypeScript",
-      "NestJS",
-      "Prisma",
-      "MySQL",
-      "JWT",
-      "Tailwind CSS",
-      "TanStack Query/Table",
-      "Recharts",
-    ],
-    repoUrl: "https://github.com/ruanssh/fitcrocs",
-  },
   {
     title: "MAINTENIX",
     description:
@@ -52,13 +39,21 @@ const projects: Project[] = [
     repoUrl: "https://github.com/ruanssh/MAINTENIX",
   },
   {
-    title: "Amazon Trails",
+    title: "Gerenciamento de Scripts SAP",
     description:
-      "Plataforma web para compartilhar informações e rotas de trilhas na floresta amazônica com mapas interativos.",
-    image:
-      "https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=800&auto=format&fit=crop",
-    technologies: ["HTML5", "CSS3", "JavaScript", "Bootstrap", "Google Maps"],
-    repoUrl: "https://github.com/ruanssh/amazon-trails",
+      "Sistema fullstack para gestão de scripts e planos de teste em projetos SAP, com controle de módulos, transações, defeitos e aprovações, multi-cliente e exportação de relatórios para Excel.",
+    technologies: [
+      "React 19",
+      "TypeScript",
+      "NestJS",
+      "Prisma",
+      "MySQL",
+      "Ant Design",
+      "Tailwind CSS",
+      "JWT",
+      "MinIO",
+    ],
+    confidential: true,
   },
 ];
 
@@ -124,6 +119,21 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                   Repositório
                 </a>
               </Button>
+            )}
+            {!project.repoUrl && project.confidential && (
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Badge variant="secondary" className="cursor-default">
+                      <Lock className="h-3 w-3" />
+                      Confidencial
+                    </Badge>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    Repositório privado — projeto interno da empresa
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
             )}
           </div>
         </CardContent>
