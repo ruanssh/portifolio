@@ -4,18 +4,17 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 disabled:pointer-events-none disabled:opacity-50 cursor-pointer",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl font-mono text-sm font-medium leading-none transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-canvas disabled:pointer-events-none disabled:opacity-50 cursor-pointer",
   {
     variants: {
       variant: {
-        default:
-          "bg-emerald-500 text-white hover:bg-emerald-600 shadow-lg shadow-emerald-500/25",
+        default: "bg-white text-canvas hover:bg-white/90",
         destructive: "bg-red-500 text-white hover:bg-red-600",
         outline:
-          "border border-zinc-700 bg-transparent hover:bg-zinc-800 hover:border-zinc-600 text-zinc-100",
-        secondary: "bg-zinc-800 text-zinc-100 hover:bg-zinc-700",
-        ghost: "hover:bg-zinc-800 text-zinc-400 hover:text-zinc-100",
-        link: "text-emerald-500 underline-offset-4 hover:underline",
+          "border border-line bg-transparent hover:bg-surface-2 hover:border-line-strong text-ink",
+        secondary: "bg-surface-2 text-ink hover:bg-line",
+        ghost: "hover:bg-surface-2 text-ink-2 hover:text-ink",
+        link: "text-ink underline-offset-4 hover:underline hover:text-white",
       },
       size: {
         default: "h-10 px-4 py-2",

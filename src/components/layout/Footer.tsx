@@ -1,5 +1,6 @@
 import { Github, Linkedin } from "lucide-react";
 import { Container } from "./Container";
+import { useLanguage } from "@/context/LanguageContext";
 
 const socialLinks = [
   { icon: Github, href: "https://github.com/ruanssh", label: "GitHub" },
@@ -10,19 +11,20 @@ const socialLinks = [
   },
 ];
 
-const navLinks = [
-  { label: "Home", href: "#inicio" },
-  { label: "About", href: "#sobre" },
-  { label: "Contact", href: "#contato" },
-  { label: "Projects", href: "#projetos" },
-  { label: "My journey", href: "#experiencia" },
-];
-
 export function Footer() {
+  const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
 
+  const navLinks = [
+    { label: t.footer.home, href: "#home" },
+    { label: t.footer.about, href: "#about" },
+    { label: t.footer.contact, href: "mailto:ruanpinheiro762@gmail.com" },
+    { label: t.footer.projects, href: "#projects" },
+    { label: t.footer.experience, href: "#experience" },
+  ];
+
   return (
-    <footer className="border-t border-white/10 py-12 mt-16">
+    <footer className="border-t border-line py-12 mt-16">
       <Container>
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
           {/* Navigation Links */}
@@ -31,7 +33,7 @@ export function Footer() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-zinc-500 hover:text-zinc-300 transition-colors"
+                className="text-ink-3 hover:text-ink-2 transition-colors"
               >
                 {link.label}
               </a>
@@ -46,7 +48,7 @@ export function Footer() {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-zinc-500 hover:text-zinc-300 transition-colors"
+                className="text-ink-3 hover:text-ink-2 transition-colors"
                 aria-label={social.label}
               >
                 <social.icon className="h-5 w-5" />
@@ -56,9 +58,9 @@ export function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="mt-8 pt-8 border-t border-white/5 text-center">
-          <p className="text-sm text-zinc-500">
-            © {currentYear} Ruan Pereira. All rights reserved.
+        <div className="mt-8 pt-8 border-t border-line/60 text-center">
+          <p className="text-sm text-ink-3">
+            © {currentYear} Ruan Pereira. {t.footer.rights}
           </p>
         </div>
       </Container>

@@ -1,4 +1,4 @@
-# 🚀 Ruan Pereira | Portfólio
+# 🚀 Ruan Pereira | Portfolio
 
 <div align="center">
 
@@ -8,93 +8,89 @@
 [![Vite](https://img.shields.io/badge/Vite-7.2.5-646CFF?logo=vite&logoColor=white)](https://vitejs.dev)
 [![Framer Motion](https://img.shields.io/badge/Framer_Motion-12.30.0-FF0055?logo=framer&logoColor=white)](https://www.framer.com/motion)
 
-**Portfólio profissional desenvolvido com as melhores tecnologias modernas**
+**Professional portfolio built with modern best-in-class technologies**
 
-[🔗 Acessar Portfólio](https://seu-portfolio.com) | [📧 Contato](mailto:ruanpinheiro762@gmail.com) | [💼 LinkedIn](https://linkedin.com/in/ruanppereira)
+[🔗 View Portfolio](https://your-portfolio.com) | [📧 Contact](mailto:ruanpinheiro762@gmail.com) | [💼 LinkedIn](https://linkedin.com/in/ruanppereira)
 
 </div>
 
 ---
 
-## ✨ Visão Geral
+## ✨ Overview
 
-Portfólio pessoal desenvolvido para apresentar minha trajetória como desenvolvedor fullstack. Com design moderno, dark mode elegante e animações fluidas, o site oferece uma experiência imersiva aos visitantes.
+Personal portfolio built to showcase my journey as a full stack developer. With a modern, commercial design and smooth animations, the site offers an engaging experience for visitors.
 
-### 🎯 Funcionalidades
+### 🎯 Features
 
-- 🎨 **Design Moderno** - Interface escura elegante com acentos em emerald
-- ⚡ **Performance Otimizada** - Build com Vite para carregamento ultra-rápido
-- 🎬 **Animações Fluidas** - Transições suaves com Framer Motion
-- 📱 **100% Responsivo** - Adaptável a todos os dispositivos
-- 🌐 **SEO Friendly** - Estrutura otimizada para mecanismos de busca
-- 🎭 **Componentes Reutilizáveis** - Arquitetura modular e escalável
+- 🎨 **Modern Design** - Elegant neutral grey and white interface
+- ⚡ **Optimized Performance** - Vite build for ultra-fast loading
+- 🎬 **Smooth Animations** - Fluid transitions with Framer Motion
+- 📱 **Fully Responsive** - Adapts to every device
+- 🌐 **SEO Friendly** - Structure optimized for search engines
+- 🎭 **Reusable Components** - Modular, scalable architecture
 
 ---
 
-## 🛠️ Stack Tecnológico
+## 🛠️ Tech Stack
 
 ### Core
 
-| Tecnologia                                   | Versão | Descrição                              |
-| -------------------------------------------- | ------ | -------------------------------------- |
-| [React](https://react.dev)                   | 19.2.0 | Biblioteca para interfaces interativas |
-| [TypeScript](https://www.typescriptlang.org) | 5.9.3  | Tipagem estática para JavaScript       |
-| [Vite](https://vitejs.dev)                   | 7.2.5  | Build tool ultrarrápida                |
+| Technology                                   | Version | Description                        |
+| --------------------------------------------- | ------ | ----------------------------------- |
+| [React](https://react.dev)                   | 19.2.0 | Library for interactive interfaces  |
+| [TypeScript](https://www.typescriptlang.org) | 5.9.3  | Static typing for JavaScript        |
+| [Vite](https://vitejs.dev)                   | 7.2.5  | Ultra-fast build tool               |
 
-### Estilização & UI
+### Styling & UI
 
-| Tecnologia                                     | Versão  | Descrição                         |
-| ---------------------------------------------- | ------- | --------------------------------- |
-| [Tailwind CSS](https://tailwindcss.com)        | 4.1.18  | Framework CSS utility-first       |
-| [Framer Motion](https://www.framer.com/motion) | 12.30.0 | Biblioteca de animações           |
-| [Lucide React](https://lucide.dev)             | 0.563.0 | Ícones modernos e consistentes    |
-| [Radix UI](https://www.radix-ui.com)           | Latest  | Componentes primitivos acessíveis |
+| Technology                                     | Version | Description                    |
+| ------------------------------------------------ | ------- | -------------------------------- |
+| [Tailwind CSS](https://tailwindcss.com)        | 4.1.18  | Utility-first CSS framework      |
+| [Framer Motion](https://www.framer.com/motion) | 12.30.0 | Animation library                |
+| [Lucide React](https://lucide.dev)             | 0.563.0 | Modern, consistent icons         |
+| [Radix UI](https://www.radix-ui.com)           | Latest  | Accessible primitive components  |
 
-### Desenvolvimento
+### Development
 
-| Tecnologia                                        | Versão | Descrição                          |
-| ------------------------------------------------- | ------ | ---------------------------------- |
-| [ESLint](https://eslint.org)                      | 9.39.1 | Linter para qualidade de código    |
-| [TypeScript ESLint](https://typescript-eslint.io) | 8.46.4 | Regras específicas para TypeScript |
+| Technology                                        | Version | Description                    |
+| --------------------------------------------------- | ------ | --------------------------------- |
+| [ESLint](https://eslint.org)                      | 9.39.1 | Linter for code quality           |
+| [TypeScript ESLint](https://typescript-eslint.io) | 8.46.4 | TypeScript-specific lint rules    |
 
 ---
 
-## 📁 Estrutura do Projeto
+## 📁 Project Structure
 
 ```
 portifolio/
-├── 📂 public/                  # Assets estáticos
-│   └── ruan-pereira.jpg        # Foto de perfil
+├── 📂 public/                  # Static assets
+│   └── ruan-pereira.jpg        # Profile photo
 ├── 📂 src/
-│   ├── 📂 components/          # Componentes React
-│   │   ├── 📂 layout/          # Componentes de layout
+│   ├── 📂 components/          # React components
+│   │   ├── 📂 layout/          # Layout components
 │   │   │   ├── Container.tsx
 │   │   │   ├── Footer.tsx
 │   │   │   ├── Navbar.tsx
 │   │   │   └── Section.tsx
-│   │   ├── 📂 profile/         # Componentes do perfil
+│   │   ├── 📂 profile/         # Profile components
 │   │   │   ├── Cover.tsx
 │   │   │   └── ProfileCard.tsx
-│   │   └── 📂 ui/              # Componentes de UI (shadcn)
+│   │   └── 📂 ui/              # UI components (shadcn)
 │   │       ├── avatar.tsx
 │   │       ├── badge.tsx
 │   │       ├── button.tsx
 │   │       └── card.tsx
-│   ├── 📂 hooks/               # Custom React hooks
-│   │   └── useTheme.ts
-│   ├── 📂 lib/                 # Utilitários
+│   ├── 📂 lib/                 # Utilities
 │   │   └── utils.ts
-│   ├── 📂 pages/               # Páginas da aplicação
-│   │   ├── Experiencia.tsx     # Timeline de experiências
-│   │   ├── Inicio.tsx          # Página inicial com ProfileCard
-│   │   ├── Projetos.tsx        # Grid de projetos
-│   │   ├── Sobre.tsx           # Sobre mim + Freelance
-│   │   └── Tecnologias.tsx     # Stack tecnológico
-│   ├── 📂 assets/              # Assets do projeto
-│   │   └── img/
-│   ├── App.tsx                 # Componente principal
+│   ├── 📂 pages/               # Application pages
+│   │   ├── About.tsx           # About me + freelance services
+│   │   ├── Experience.tsx      # Experience timeline
+│   │   ├── Home.tsx            # Home page with ProfileCard
+│   │   ├── Projects.tsx        # Projects grid
+│   │   └── Technologies.tsx    # Tech stack
+│   ├── App.tsx                 # Root component
 │   ├── main.tsx                # Entry point
-│   └── index.css               # Estilos globais
+│   └── index.css               # Global styles
 ├── 📄 package.json
 ├── 📄 tsconfig.json
 ├── 📄 vite.config.ts
@@ -103,78 +99,78 @@ portifolio/
 
 ---
 
-## 🚀 Como Executar
+## 🚀 Getting Started
 
-### Pré-requisitos
+### Prerequisites
 
 - Node.js 18+
-- pnpm (recomendado) ou npm
+- pnpm (recommended) or npm
 
-### Instalação
+### Installation
 
 ```bash
-# Clone o repositório
+# Clone the repository
 git clone https://github.com/ruanssh/portifolio.git
 cd portifolio
 
-# Instale as dependências
+# Install dependencies
 pnpm install
 
-# Execute em modo de desenvolvimento
+# Run in development mode
 pnpm dev
 ```
 
-### Scripts Disponíveis
+### Available Scripts
 
 ```bash
-pnpm dev      # Inicia servidor de desenvolvimento
-pnpm build    # Build para produção
-pnpm preview  # Preview do build de produção
-pnpm lint     # Executa ESLint
+pnpm dev      # Start the dev server
+pnpm build    # Build for production
+pnpm preview  # Preview the production build
+pnpm lint     # Run ESLint
 ```
 
 ---
 
-## 📱 Seções do Portfólio
+## 📱 Portfolio Sections
 
-| Seção              | Descrição                                                |
-| ------------------ | -------------------------------------------------------- |
-| **🏠 Início**      | Profile card com informações principais e redes sociais  |
-| **👤 Sobre**       | Bio completa, filosofia de trabalho e serviços freelance |
-| **💼 Experiência** | Timeline detalhada das experiências profissionais        |
-| **🛠️ Tecnologias** | Stack tecnológico e ferramentas utilizadas               |
-| **📁 Projetos**    | Grid de projetos com tecnologias e links                 |
+| Section              | Description                                                |
+| --------------------- | ------------------------------------------------------------ |
+| **🏠 Home**           | Profile card with key info and social links                  |
+| **👤 About**          | Full bio, work philosophy, and freelance services             |
+| **💼 Experience**     | Detailed timeline of professional experience                  |
+| **🛠️ Technologies**   | Tech stack and tools used                                     |
+| **📁 Projects**       | Project grid with technologies and links                      |
 
 ---
 
 ## 🎨 Design System
 
-### Cores Principais
+### Core Colors
 
-- **Background**: `#09090b` (zinc-950)
-- **Surface**: `#18181b` (zinc-900)
-- **Text Primary**: `#f4f4f5` (zinc-100)
-- **Text Secondary**: `#a1a1aa` (zinc-400)
-- **Accent**: `#10b981` (emerald-500)
+- **Background**: `#1a1917` (canvas)
+- **Surface**: `#222120` (surface)
+- **Text Primary**: `#f7f6f4` (ink)
+- **Text Secondary**: `#b0ada7` (ink-2)
+- **Accent**: `#ffffff` (white)
 
-### Tipografia
+### Typography
 
-- **Fonte**: System UI / Tailwind defaults
+- **Font**: Ubuntu Sans / Ubuntu Sans Mono
 - **Headings**: Bold, tracking tight
 - **Body**: Regular, leading-relaxed
 
 ---
 
-## 📄 Licença
+## 📄 License
 
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
 
 <div align="center">
 
-**Desenvolvido com 💚 por [Ruan Pereira](https://github.com/ruanssh)**
+**Built with 🤍 by [Ruan Pereira](https://github.com/ruanssh)**
 
-⭐ Star este repositório se você achou útil!
+⭐ Star this repository if you found it useful!
 
 </div>

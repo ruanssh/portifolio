@@ -1,26 +1,26 @@
 import { Navbar } from "@/components/layout/Navbar";
-import { Inicio } from "@/pages/Inicio";
-import { Sobre } from "@/pages/Sobre";
-import { Experiencia } from "@/pages/Experiencia";
-import { Projetos } from "@/pages/Projetos";
-import { Tecnologias } from "@/pages/Tecnologias";
+import { Home } from "@/pages/Home";
+import { About } from "@/pages/About";
+import { Experience } from "@/pages/Experience";
+import { Projects } from "@/pages/Projects";
+import { Technologies } from "@/pages/Technologies";
 import { Footer } from "@/components/layout/Footer";
 import { SectionDivider } from "@/components/layout/SectionDivider";
 
 function App() {
   return (
-    <div className="min-h-screen bg-zinc-950">
+    <div className="min-h-screen bg-canvas">
       <Navbar />
       <main>
-        <Inicio />
+        <Home />
         <SectionDivider />
-        <Sobre />
+        <About />
         <SectionDivider />
-        <Experiencia />
+        <Experience />
         <SectionDivider />
-        <Projetos />
+        <Projects />
         <SectionDivider />
-        <Tecnologias />
+        <Technologies />
       </main>
       <Footer />
     </div>
