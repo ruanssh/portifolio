@@ -4,7 +4,7 @@ import { Hero } from "@/components/profile/Hero";
 
 export function Home() {
   return (
-    <Section id="home" className="relative overflow-hidden pt-40 md:pt-48 pb-20">
+    <Section id="home" className="relative overflow-hidden pt-24 md:pt-40 lg:pt-48 pb-12 md:pb-20">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.05),transparent_60%)]" />
       <Container className="relative z-10 max-w-6xl">
         <Hero

@@ -16,6 +16,40 @@ interface HeroProps {
   email: string;
 }
 
+/**
+ * Large portrait with terminal-style corner brackets. Desktop only — mobile
+ * uses the small circular avatar inline with the `$ whoami` prompt.
+ */
+function PhotoFrame({ src, alt }: { src: string; alt: string }) {
+  const bracket = "absolute h-6 w-6 border-ink/60 pointer-events-none";
+
+  return (
+    <div className="relative">
+      <span
+        aria-hidden="true"
+        className={`${bracket} -top-2 -left-2 border-t-2 border-l-2`}
+      />
+      <span
+        aria-hidden="true"
+        className={`${bracket} -top-2 -right-2 border-t-2 border-r-2`}
+      />
+      <span
+        aria-hidden="true"
+        className={`${bracket} -bottom-2 -left-2 border-b-2 border-l-2`}
+      />
+      <span
+        aria-hidden="true"
+        className={`${bracket} -bottom-2 -right-2 border-b-2 border-r-2`}
+      />
+      <img
+        src={src}
+        alt={alt}
+        className="aspect-[4/5] w-full rounded-2xl border border-line object-cover object-top"
+      />
+    </div>
+  );
+}
+
 export function Hero({
   name,
   avatarImage,
@@ -43,21 +77,26 @@ export function Hero({
   };
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-12 lg:gap-16 items-center">
-      {/* Text column */}
-      <div className="order-2 lg:order-1">
-        {/* Terminal prompt line */}
-        <motion.p
+    <div className="grid grid-cols-1 md:grid-cols-[1.1fr_0.9fr] gap-10 md:gap-8 lg:gap-16 items-center">
+      {/* Text column — first in DOM so mobile leads with the headline */}
+      <div>
+        {/* Prompt line, with the circular avatar inline on mobile */}
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, ease: smoothEase }}
-          className="font-mono text-sm text-ink-3 mb-4"
+          className="flex items-center gap-3 mb-3"
         >
-          $ whoami
-        </motion.p>
+          <img
+            src={avatarImage}
+            alt={name}
+            className="md:hidden h-11 w-11 shrink-0 rounded-full border border-line object-cover object-top"
+          />
+          <p className="font-mono text-sm text-ink-3">$ whoami</p>
+        </motion.div>
 
         {/* Typewriter headline */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-ink mb-6 min-h-[1.2em]">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-ink mb-5 min-h-[1.2em]">
           {displayed}
           <span
             aria-hidden="true"
@@ -73,7 +112,7 @@ export function Hero({
           {/* Subtitle */}
           <motion.p
             variants={revealItem}
-            className="text-lg md:text-xl text-ink-2 max-w-xl mb-8"
+            className="text-lg md:text-xl text-ink-2 max-w-xl mb-7"
           >
             {t.hero.role} — {t.hero.tagline}
           </motion.p>
@@ -81,7 +120,7 @@ export function Hero({
           {/* CTAs */}
           <motion.div
             variants={revealItem}
-            className="flex flex-wrap gap-4 mb-12"
+            className="flex flex-wrap gap-3 sm:gap-4 mb-8"
           >
             <Button asChild>
               <a href="#projects">{t.hero.viewProjects}</a>
@@ -94,20 +133,20 @@ export function Hero({
             </Button>
           </motion.div>
 
-          {/* Stat / social row */}
+          {/* Credentials row */}
           <motion.div
             variants={revealItem}
-            className="flex flex-wrap items-center gap-x-6 gap-y-4"
+            className="flex items-center gap-4"
           >
-            <p className="flex items-center gap-1 text-sm text-ink-3">
-              <MapPin className="h-3.5 w-3.5" />
-              {t.hero.location}
-            </p>
+            <div className="flex min-w-0 flex-col gap-y-1 sm:flex-row sm:items-center sm:gap-x-5">
+              <p className="flex items-center gap-1 text-sm text-ink-3">
+                <MapPin className="h-3.5 w-3.5 shrink-0" />
+                {t.hero.location}
+              </p>
 
-            <div className="hidden sm:block h-8 w-px bg-line" />
+              <div className="hidden sm:block h-8 w-px bg-line" />
 
-            <div className="flex items-center gap-5 font-mono text-sm">
-              <span className="text-ink-2">
+              <span className="font-mono text-sm text-ink-2 whitespace-nowrap">
                 <span className="text-ink font-semibold">
                   {yearsExperience}+
                 </span>{" "}
@@ -115,7 +154,7 @@ export function Hero({
               </span>
             </div>
 
-            <div className="flex items-center gap-2 ml-auto">
+            <div className="flex items-center gap-1 ml-auto shrink-0">
               {socials?.github && (
                 <a
                   href={socials.github}
@@ -143,37 +182,15 @@ export function Hero({
         </motion.div>
       </div>
 
-      {/* Photo column */}
+      {/* Photo column — desktop only */}
       <motion.div
         initial={{ opacity: 0, scale: 0.94 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8, delay: 0.3, ease: smoothEase }}
-        className="order-1 lg:order-2"
+        transition={{ duration: 0.8, delay: 0.2, ease: smoothEase }}
+        className="hidden md:block"
       >
-        <div className="relative mx-auto max-w-sm lg:max-w-none">
-          <span
-            aria-hidden="true"
-            className="absolute -top-2 -left-2 h-6 w-6 border-t-2 border-l-2 border-ink/60"
-          />
-          <span
-            aria-hidden="true"
-            className="absolute -top-2 -right-2 h-6 w-6 border-t-2 border-r-2 border-ink/60"
-          />
-          <span
-            aria-hidden="true"
-            className="absolute -bottom-2 -left-2 h-6 w-6 border-b-2 border-l-2 border-ink/60"
-          />
-          <span
-            aria-hidden="true"
-            className="absolute -bottom-2 -right-2 h-6 w-6 border-b-2 border-r-2 border-ink/60"
-          />
-          <img
-            src={avatarImage}
-            alt={name}
-            className="aspect-[4/5] w-full rounded-2xl border border-line object-cover"
-          />
-        </div>
-        <p className="mt-4 text-center lg:text-left font-mono text-xs text-ink-3">
+        <PhotoFrame src={avatarImage} alt={name} />
+        <p className="mt-4 font-mono text-xs text-ink-3">
           // {t.hero.location}
         </p>
       </motion.div>
