@@ -1,6 +1,13 @@
 import { motion } from "framer-motion";
 import { smoothEase } from "@/lib/motion";
-import { CheckCircle2, Github, ImageOff, Lock, Star } from "lucide-react";
+import {
+  ArrowUpRight,
+  CheckCircle2,
+  Github,
+  ImageOff,
+  Lock,
+  Star,
+} from "lucide-react";
 import { Section } from "@/components/layout/Section";
 import { Container } from "@/components/layout/Container";
 import { Badge } from "@/components/ui/badge";
@@ -26,6 +33,7 @@ function ProjectRow({
   labels: {
     featured: string;
     repository: string;
+    visitSite: string;
     confidential: string;
     confidentialTooltip: string;
     noPreview: string;
@@ -49,7 +57,25 @@ function ProjectRow({
           reversed ? "lg:order-2" : ""
         }`}
       >
-        {project.image ? (
+        {project.image && project.liveUrl ? (
+          <a
+            href={project.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${labels.visitSite}: ${project.title}`}
+            className="block w-full h-full"
+          >
+            <img
+              src={project.image}
+              alt={project.title}
+              className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            />
+            <span className="absolute bottom-4 left-4 flex items-center gap-1.5 rounded-lg border border-line-strong bg-canvas/80 backdrop-blur px-2.5 py-1 font-mono text-xs text-ink opacity-0 translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
+              {project.liveUrl.replace(/^https?:\/\//, "")}
+              <ArrowUpRight className="h-3 w-3" />
+            </span>
+          </a>
+        ) : project.image ? (
           <img
             src={project.image}
             alt={project.title}
@@ -112,6 +138,18 @@ function ProjectRow({
         </div>
 
         <div className="flex gap-3">
+          {project.liveUrl && (
+            <Button size="sm" asChild>
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {labels.visitSite}
+                <ArrowUpRight className="h-4 w-4" />
+              </a>
+            </Button>
+          )}
           {project.repoUrl && (
             <Button variant="outline" size="sm" asChild>
               <a
@@ -148,6 +186,7 @@ export function Projects() {
   const labels = {
     featured: t.projects.featured,
     repository: t.projects.repository,
+    visitSite: t.projects.visitSite,
     confidential: t.projects.confidential,
     confidentialTooltip: t.projects.confidentialTooltip,
     noPreview: t.projects.noPreview,

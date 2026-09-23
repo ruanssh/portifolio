@@ -21,6 +21,7 @@ export interface ProjectEntry {
   image?: string;
   technologies: string[];
   repoUrl?: string;
+  liveUrl?: string;
   confidential?: boolean;
   featured?: boolean;
 }
@@ -72,6 +73,7 @@ export interface SiteContent {
     subtitle: string;
     featured: string;
     repository: string;
+    visitSite: string;
     confidential: string;
     confidentialTooltip: string;
     noPreview: string;
@@ -222,6 +224,7 @@ export const content: Record<Language, SiteContent> = {
         "Take a look at my recent projects, where I use technology to build innovative solutions for real-world challenges, reflecting my passion for development.",
       featured: "Featured",
       repository: "Repository",
+      visitSite: "Visit site",
       confidential: "Confidential",
       confidentialTooltip: "Private repository — internal company project",
       noPreview: "NO PREVIEW",
@@ -273,6 +276,21 @@ export const content: Record<Language, SiteContent> = {
             "MinIO",
           ],
           confidential: true,
+          featured: true,
+        },
+        {
+          title: "Doca Cakes",
+          category: "Freelance · Bakery Website",
+          description:
+            "Website for Doca Cakes, a custom cake shop in Manaus. A gallery of real cakes where every one turns into an order: one tap opens WhatsApp with a ready-made message naming the chosen cake.",
+          highlights: [
+            "Cake gallery with lightbox and a pre-filled WhatsApp order per cake",
+            "Custom brand identity: logo, palette, and typography",
+            "100% static and SEO-ready: optimized images, sitemap, Open Graph, and Schema.org",
+          ],
+          image: "/projects/docacakes.jpg",
+          technologies: ["Astro", "TypeScript", "Tailwind CSS", "Vercel"],
+          liveUrl: "https://docacakes.com.br",
           featured: true,
         },
       ],
@@ -456,6 +474,7 @@ export const content: Record<Language, SiteContent> = {
         "Confira meus projetos recentes, onde uso tecnologia para construir soluções inovadoras para desafios reais, refletindo minha paixão por desenvolvimento.",
       featured: "Destaque",
       repository: "Repositório",
+      visitSite: "Visitar site",
       confidential: "Confidencial",
       confidentialTooltip: "Repositório privado — projeto interno da empresa",
       noPreview: "SEM PRÉVIA",
@@ -507,6 +526,21 @@ export const content: Record<Language, SiteContent> = {
             "MinIO",
           ],
           confidential: true,
+          featured: true,
+        },
+        {
+          title: "Doca Cakes",
+          category: "Freelance · Site de Docearia",
+          description:
+            "Site da Doca Cakes, docearia de bolos personalizados em Manaus. Uma vitrine dos bolos reais onde cada um vira pedido: um toque abre o WhatsApp com a mensagem pronta citando o bolo escolhido.",
+          highlights: [
+            "Galeria de bolos com lightbox e pedido pelo WhatsApp já preenchido por bolo",
+            "Identidade visual própria: logo, paleta e tipografia",
+            "100% estático e pronto pra SEO: imagens otimizadas, sitemap, Open Graph e Schema.org",
+          ],
+          image: "/projects/docacakes.jpg",
+          technologies: ["Astro", "TypeScript", "Tailwind CSS", "Vercel"],
+          liveUrl: "https://docacakes.com.br",
           featured: true,
         },
       ],
