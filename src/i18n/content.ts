@@ -19,6 +19,7 @@ export interface ProjectEntry {
   description?: string;
   highlights?: string[];
   image?: string;
+  gallery?: string[];
   technologies: string[];
   repoUrl?: string;
   liveUrl?: string;
@@ -79,6 +80,8 @@ export interface SiteContent {
     noPreview: string;
     previous: string;
     next: string;
+    viewDetails: string;
+    close: string;
     items: ProjectEntry[];
   };
   technologies: {
@@ -232,6 +235,8 @@ export const content: Record<Language, SiteContent> = {
       noPreview: "NO PREVIEW",
       previous: "Previous project",
       next: "Next project",
+      viewDetails: "View details",
+      close: "Close",
       items: [
         {
           title: "Ficha do Carro",
@@ -243,7 +248,8 @@ export const content: Record<Language, SiteContent> = {
             "Hybrid search on Qdrant (local embeddings + BM25) with RRF fusion",
             "Queued PDF extraction (BullMQ) with fallback across Groq, OpenRouter, and Gemini",
           ],
-          image: "/projects/ficha-do-carro.jpg",
+          image: "/projects/ficha-do-carro-painel.webp",
+          gallery: ["/projects/ficha-do-carro-assistente.webp"],
           technologies: [
             "React 19",
             "TypeScript",
@@ -510,6 +516,8 @@ export const content: Record<Language, SiteContent> = {
       noPreview: "SEM PRÉVIA",
       previous: "Projeto anterior",
       next: "Próximo projeto",
+      viewDetails: "Ver detalhes",
+      close: "Fechar",
       items: [
         {
           title: "Ficha do Carro",
@@ -521,7 +529,8 @@ export const content: Record<Language, SiteContent> = {
             "Busca híbrida no Qdrant (embeddings locais + BM25) com fusão RRF",
             "Extração de PDF em fila (BullMQ) com fallback entre Groq, OpenRouter e Gemini",
           ],
-          image: "/projects/ficha-do-carro.jpg",
+          image: "/projects/ficha-do-carro-painel.webp",
+          gallery: ["/projects/ficha-do-carro-assistente.webp"],
           technologies: [
             "React 19",
             "TypeScript",
