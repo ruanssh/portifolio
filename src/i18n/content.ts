@@ -77,6 +77,8 @@ export interface SiteContent {
     confidential: string;
     confidentialTooltip: string;
     noPreview: string;
+    previous: string;
+    next: string;
     items: ProjectEntry[];
   };
   technologies: {
@@ -228,7 +230,35 @@ export const content: Record<Language, SiteContent> = {
       confidential: "Confidential",
       confidentialTooltip: "Private repository — internal company project",
       noPreview: "NO PREVIEW",
+      previous: "Previous project",
+      next: "Next project",
       items: [
+        {
+          title: "Ficha do Carro",
+          category: "AI Assistant · RAG",
+          description:
+            "Keeps every car service order (PDF) in one place and answers questions about the car's history, like \"when did I last change the oil?\", citing the source documents.",
+          highlights: [
+            "Function-calling agent: sums and comparisons come from exact SQL, not from the model",
+            "Hybrid search on Qdrant (local embeddings + BM25) with RRF fusion",
+            "Queued PDF extraction (BullMQ) with fallback across Groq, OpenRouter, and Gemini",
+          ],
+          image: "/projects/ficha-do-carro.jpg",
+          technologies: [
+            "React 19",
+            "TypeScript",
+            "Fastify",
+            "Prisma",
+            "MySQL",
+            "Qdrant",
+            "BullMQ",
+            "Redis",
+            "MinIO",
+            "Docker",
+          ],
+          repoUrl: "https://github.com/ruanssh/garage-ai",
+          featured: true,
+        },
         {
           title: "MAINTENIX",
           category: "Industrial Maintenance",
@@ -478,7 +508,35 @@ export const content: Record<Language, SiteContent> = {
       confidential: "Confidencial",
       confidentialTooltip: "Repositório privado — projeto interno da empresa",
       noPreview: "SEM PRÉVIA",
+      previous: "Projeto anterior",
+      next: "Próximo projeto",
       items: [
+        {
+          title: "Ficha do Carro",
+          category: "Assistente com IA · RAG",
+          description:
+            "Guarda todas as ordens de serviço do carro (PDF) em um só lugar e responde perguntas sobre o histórico, como \"quando troquei o óleo pela última vez?\", citando os documentos de origem.",
+          highlights: [
+            "Agente com function calling: somas e comparações saem de SQL exato, não do modelo",
+            "Busca híbrida no Qdrant (embeddings locais + BM25) com fusão RRF",
+            "Extração de PDF em fila (BullMQ) com fallback entre Groq, OpenRouter e Gemini",
+          ],
+          image: "/projects/ficha-do-carro.jpg",
+          technologies: [
+            "React 19",
+            "TypeScript",
+            "Fastify",
+            "Prisma",
+            "MySQL",
+            "Qdrant",
+            "BullMQ",
+            "Redis",
+            "MinIO",
+            "Docker",
+          ],
+          repoUrl: "https://github.com/ruanssh/garage-ai",
+          featured: true,
+        },
         {
           title: "MAINTENIX",
           category: "Manutenção Industrial",

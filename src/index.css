@@ -57,6 +57,14 @@
   }
 }
 
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 @keyframes marquee {
   from {
     transform: translateX(0);

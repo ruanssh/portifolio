@@ -1,8 +1,12 @@
+import { useRef, useState } from "react";
+import type { KeyboardEvent } from "react";
 import { motion } from "framer-motion";
 import { smoothEase } from "@/lib/motion";
 import {
   ArrowUpRight,
   CheckCircle2,
+  ChevronLeft,
+  ChevronRight,
   Github,
   ImageOff,
   Lock,
@@ -21,15 +25,11 @@ import {
 import { useLanguage } from "@/context/LanguageContext";
 import type { ProjectEntry } from "@/i18n/content";
 
-function ProjectRow({
+function ProjectSlide({
   project,
-  index,
-  isLast,
   labels,
 }: {
   project: ProjectEntry;
-  index: number;
-  isLast: boolean;
   labels: {
     featured: string;
     repository: string;
@@ -39,24 +39,10 @@ function ProjectRow({
     noPreview: string;
   };
 }) {
-  const reversed = index % 2 === 1;
-
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: index * 0.1, ease: smoothEase }}
-      className={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center py-12 ${
-        isLast ? "" : "border-b border-line"
-      }`}
-    >
+    <div className="min-w-full snap-center grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center py-8">
       {/* Image */}
-      <div
-        className={`relative aspect-[4/3] overflow-hidden rounded-2xl border border-line bg-surface-2 group ${
-          reversed ? "lg:order-2" : ""
-        }`}
-      >
+      <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-line bg-surface-2 group">
         {project.image && project.liveUrl ? (
           <a
             href={project.liveUrl}
@@ -98,7 +84,7 @@ function ProjectRow({
       </div>
 
       {/* Content */}
-      <div className={reversed ? "lg:order-1" : ""}>
+      <div>
         {project.category && (
           <span className="font-mono text-xs font-medium uppercase tracking-wider text-ink-3 mb-3 block">
             {project.category}
@@ -177,12 +163,40 @@ function ProjectRow({
           )}
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
 export function Projects() {
   const { t } = useLanguage();
+  const trackRef = useRef<HTMLDivElement>(null);
+  const [active, setActive] = useState(0);
+  const total = t.projects.items.length;
+
+  const goTo = (index: number) => {
+    const track = trackRef.current;
+    if (!track) return;
+    const target = Math.max(0, Math.min(total - 1, index));
+    track.scrollTo({ left: target * track.clientWidth, behavior: "smooth" });
+  };
+
+  const handleScroll = () => {
+    const track = trackRef.current;
+    if (!track || track.clientWidth === 0) return;
+    setActive(Math.round(track.scrollLeft / track.clientWidth));
+  };
+
+  const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === "ArrowRight") {
+      event.preventDefault();
+      goTo(active + 1);
+    } else if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      goTo(active - 1);
+    }
+  };
+
+  const pad = (value: number) => String(value).padStart(2, "0");
   const labels = {
     featured: t.projects.featured,
     repository: t.projects.repository,
@@ -205,16 +219,62 @@ export function Projects() {
           <h2 className="text-3xl md:text-4xl font-bold text-ink mb-4">
             {t.projects.title}
           </h2>
-          <p className="text-ink-2 mb-4 max-w-2xl">{t.projects.subtitle}</p>
+          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between mb-4">
+            <p className="text-ink-2 max-w-2xl">{t.projects.subtitle}</p>
+            <div className="flex items-center gap-3 flex-shrink-0">
+              <span className="font-mono text-sm text-ink-3 mr-1">
+                {pad(active + 1)} / {pad(total)}
+              </span>
+              <Button
+                variant="outline"
+                size="icon"
+                aria-label={t.projects.previous}
+                disabled={active === 0}
+                onClick={() => goTo(active - 1)}
+              >
+                <ChevronLeft className="h-4 w-4" />
+              </Button>
+              <Button
+                variant="outline"
+                size="icon"
+                aria-label={t.projects.next}
+                disabled={active === total - 1}
+                onClick={() => goTo(active + 1)}
+              >
+                <ChevronRight className="h-4 w-4" />
+              </Button>
+            </div>
+          </div>
 
-          <div>
-            {t.projects.items.map((project, index) => (
-              <ProjectRow
+          <div
+            ref={trackRef}
+            onScroll={handleScroll}
+            onKeyDown={handleKeyDown}
+            tabIndex={0}
+            className="no-scrollbar flex overflow-x-auto snap-x snap-mandatory rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
+          >
+            {t.projects.items.map((project) => (
+              <ProjectSlide
                 key={project.title}
                 project={project}
-                index={index}
-                isLast={index === t.projects.items.length - 1}
                 labels={labels}
+              />
+            ))}
+          </div>
+
+          <div className="flex justify-center gap-2 mt-4">
+            {t.projects.items.map((project, index) => (
+              <button
+                key={project.title}
+                type="button"
+                aria-label={project.title}
+                aria-current={index === active}
+                onClick={() => goTo(index)}
+                className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
+                  index === active
+                    ? "w-8 bg-ink"
+                    : "w-4 bg-line-strong hover:bg-ink-3"
+                }`}
               />
             ))}
           </div>
