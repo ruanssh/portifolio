@@ -118,7 +118,7 @@ function ProjectCard({
   return (
     <motion.div
       variants={cardVariants}
-      className="w-[82vw] flex-shrink-0 sm:w-[400px] lg:w-[430px]"
+      className="w-[85%] flex-shrink-0 sm:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)]"
     >
       <motion.div
         layoutId={`project-${project.title}`}
@@ -400,7 +400,10 @@ export function Projects() {
     if (!viewport || !track) return;
 
     const measure = () => {
-      const max = Math.max(0, track.scrollWidth - viewport.clientWidth);
+      // offsetLeft/offsetWidth ignore the entrance transforms; scrollWidth doesn't.
+      const last = track.lastElementChild as HTMLElement | null;
+      const width = last ? last.offsetLeft + last.offsetWidth : 0;
+      const max = Math.max(0, width - viewport.clientWidth);
       setMaxScroll(max);
       if (x.get() < -max) x.set(-max);
     };
@@ -415,9 +418,7 @@ export function Projects() {
     const start = latest >= -4;
     const end = latest <= -maxScroll + 4;
     setEdges((current) =>
-      current.start === start && current.end === end
-        ? current
-        : { start, end },
+      current.start === start && current.end === end ? current : { start, end },
     );
   });
 
@@ -426,12 +427,20 @@ export function Projects() {
   );
   const progressLeft = useTransform(progress, (value) => `${value * 70}%`);
 
-  const slide = (direction: 1 | -1) => {
+  const getStep = () => {
     const card = trackRef.current?.firstElementChild;
-    const step = (card?.clientWidth ?? 400) + TRACK_GAP;
-    const target = Math.min(0, Math.max(-maxScroll, x.get() - direction * step));
-    animate(x, target, { type: "spring", stiffness: 220, damping: 30 });
+    return (card?.clientWidth ?? 360) + TRACK_GAP;
   };
+
+  // Always rests with a card aligned to the left edge (or at the very end).
+  const snapTo = (position: number) => {
+    const step = getStep();
+    const snapped = Math.round(position / step) * step;
+    const target = Math.min(0, Math.max(-maxScroll, snapped));
+    animate(x, target, { type: "spring", stiffness: 260, damping: 32 });
+  };
+
+  const slide = (direction: 1 | -1) => snapTo(x.get() - direction * getStep());
 
   const canScroll = maxScroll > 0;
 
@@ -446,9 +455,7 @@ export function Projects() {
           className="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between"
         >
           <div>
-            <p className="font-mono text-sm text-ink-3 mb-4">
-              $ ls ~/projects
-            </p>
+            <p className="font-mono text-sm text-ink-3 mb-4">$ ls ~/projects</p>
             <h2 className="text-3xl md:text-4xl font-bold text-ink mb-4">
               {labels.title}
             </h2>
@@ -478,57 +485,54 @@ export function Projects() {
             </div>
           )}
         </motion.div>
-      </Container>
 
-      <div ref={viewportRef} className="relative overflow-hidden py-4">
-        <motion.div
-          ref={trackRef}
-          style={{ x, gap: TRACK_GAP }}
-          drag={canScroll ? "x" : false}
-          dragConstraints={{ left: -maxScroll, right: 0 }}
-          dragElastic={0.08}
-          dragTransition={{ power: 0.25, timeConstant: 260 }}
-          onDragStart={() => {
-            draggedRef.current = true;
-          }}
-          onDragEnd={() => {
-            window.setTimeout(() => {
-              draggedRef.current = false;
-            }, 50);
-          }}
-          variants={trackVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className={`flex w-max items-stretch px-4 sm:px-6 lg:px-[max(2rem,calc((100vw-72rem)/2+2rem))] ${
-            canScroll ? "cursor-grab active:cursor-grabbing" : ""
-          }`}
-        >
-          {labels.items.map((project) => (
-            <ProjectCard
-              key={project.title}
-              project={project}
-              labels={labels}
-              onOpen={() => {
-                if (!draggedRef.current) setOpenTitle(project.title);
-              }}
-            />
-          ))}
-        </motion.div>
+        <div ref={viewportRef} className="overflow-hidden py-4">
+          <motion.div
+            ref={trackRef}
+            style={{ x, gap: TRACK_GAP }}
+            drag={canScroll ? "x" : false}
+            dragConstraints={{ left: -maxScroll, right: 0 }}
+            dragElastic={0.06}
+            dragMomentum={false}
+            onDragStart={() => {
+              draggedRef.current = true;
+            }}
+            onDragEnd={(_, info) => {
+              snapTo(x.get() + info.velocity.x * 0.2);
+              window.setTimeout(() => {
+                draggedRef.current = false;
+              }, 50);
+            }}
+            variants={trackVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            className={`relative flex items-stretch ${
+              canScroll ? "cursor-grab active:cursor-grabbing" : ""
+            }`}
+          >
+            {labels.items.map((project) => (
+              <ProjectCard
+                key={project.title}
+                project={project}
+                labels={labels}
+                onOpen={() => {
+                  if (!draggedRef.current) setOpenTitle(project.title);
+                }}
+              />
+            ))}
+          </motion.div>
+        </div>
 
-        <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-24 bg-gradient-to-l from-canvas to-transparent sm:block" />
-      </div>
-
-      {canScroll && (
-        <Container className="max-w-6xl">
+        {canScroll && (
           <div className="relative mt-6 h-px w-full bg-line">
             <motion.div
               style={{ left: progressLeft }}
               className="absolute -top-px h-[3px] w-[30%] rounded-full bg-ink"
             />
           </div>
-        </Container>
-      )}
+        )}
+      </Container>
 
       {createPortal(
         <AnimatePresence>
