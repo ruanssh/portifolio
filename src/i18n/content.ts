@@ -262,7 +262,7 @@ export const content: Record<Language, SiteContent> = {
             "MinIO",
             "Docker",
           ],
-          repoUrl: "https://github.com/ruanssh/garage-ai",
+          liveUrl: "https://fichadocarro.online",
           featured: true,
         },
         {
@@ -543,7 +543,7 @@ export const content: Record<Language, SiteContent> = {
             "MinIO",
             "Docker",
           ],
-          repoUrl: "https://github.com/ruanssh/garage-ai",
+          liveUrl: "https://fichadocarro.online",
           featured: true,
         },
         {
